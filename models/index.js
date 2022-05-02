@@ -11,3 +11,5 @@ BlogPost.belongsTo(User, {
 });
 
 module.exports = { User, BlogPost };
+
+//make comments model, tie to specific blog post
