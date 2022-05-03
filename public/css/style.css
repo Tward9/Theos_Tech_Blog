@@ -116,6 +116,9 @@ img {
 }
 
 .login-card {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   margin: 0 0 20px 0;
   flex: 0 0 50%;
   max-width: 50%;
@@ -166,5 +169,5 @@ img {
 .galleries {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: center;F
 }
