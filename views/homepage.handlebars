@@ -1,3 +1,20 @@
 {{#each blogPosts as |blogPost|}}
 {{> blogPost-details}}
 {{/each}}
+<div class="flex-row card">
+    <header>New Post</header>
+    <form class="form post-form">
+        <div class="form-group">
+            <label for="post-title">Title:</label>
+            <input class="form-input" type="text" id="post-title" />
+        </div>
+        <div class="form-group">
+            <label for="post-description">Post:</label>
+            <input class="form-input" type="text" id="post-description" />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">post</button>
+        </div>
+    </form>
+</div>
+<script src="/js/newpost.js"></script>
