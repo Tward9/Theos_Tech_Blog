@@ -21,6 +21,19 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/blogPost/:id', async (req, res) => {
+    try {
+      const dbBlogPostData = await BlogPost.findByPk(req.params.id);
+  
+      const blogpost = dbBlogPostData.get({ plain: true });
+  
+      res.render('blogPost', { blogpost });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('/');
