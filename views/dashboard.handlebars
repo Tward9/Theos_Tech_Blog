@@ -1,4 +1,4 @@
-
+{{!-- {{#if logged_in}} --}}
 <div class="flex-row card">
     <header>New Post</header>
     <form class="form post-form">
@@ -18,4 +18,8 @@
 {{#each blogPosts as |blogPost|}}
 {{> blogPost-details}}
 {{/each}}
+{{!-- {{/if}} --}}
+{{!-- {{#unless logged_in}} --}}
+<a href="/login">Please Log In</a>
+{{!-- {{/unless}} --}}
 <script src="/js/newpost.js"></script>
