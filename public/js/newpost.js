@@ -18,7 +18,7 @@ const newPostHandler = async (event) => {
         };
     };
 };
-
+//need to get user id into posts so you can only delete your own posts
 const postDeleteHandler = async (event) => {
     event.preventDefault();
     event.stopImmediatePropagation();

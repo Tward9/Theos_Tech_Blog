@@ -1,24 +1,25 @@
 const router = require('express').Router();
-const { BlogPost, User } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { BlogPost } = require('../models');
+const withAuth = require('../utils/auth');
 
-
+//get all blog posts for homepage
 router.get('/', async (req, res) => {
     try {
-        const dbBlogPostData = await BlogPost.findAll({
-            include: [
-                {
-                  model: User,
-                  attributes: ['name'],
-                },
-              ],
+        const dbBlogPostData = await BlogPost.findAll({});
+
+        const blogPosts = dbBlogPostData.map((blogPost) =>
+            blogPost.get({ plain: true })
+        );
+
+        res.render('dashboard', {
+            blogPosts,
+            // logged_In: req.session.logged_In,
         });
-        res.status(200).json(dbBlogPostData);
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
-
 router.post('/', async (req, res) => {
     try {
         const newBlogPost = await BlogPost.create({
