@@ -1,10 +1,23 @@
 <section class="container">
-  <h3 class="gallery-name">{{title}}</h3>
+  <h3 class="gallery-name">{{post.title}}</h3>
+  <h5>{{post.user_id}}</h5>
   <section class="flex-row justify-center">
-    
-    <h2>blog post go here</h2>
-    {{!-- {{#each gallery.paintings as |painting|}}
-    {{!-- {{> painting-details}} --}}
-    {{!-- {{/each}} --}}
+    <h3>{{post.description}}</h3>
+    <div class="flex-row card">
+      <header>New Comment</header>
+      <form class="form comment-form">
+        <div class="form-group">
+          <label for="comment-description">Comment:</label>
+          <input class="form-input" type="text" id="comment-description" />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit">Add Comment</button>
+        </div>
+      </form>
+    </div>
+    {{#each post.comments as |comment|}}
+    {{> comment-details}}
+    {{/each}}
   </section>
 </section>
+<script src="/js/comment.js"></script>
